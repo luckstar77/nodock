@@ -5,7 +5,7 @@ RUN apt-get update &&\
     npm install -g n
 
 ARG NODE_ENV=production
-ARG NODE_VERSION=latest
+ARG NODE_VERSION=8.11.2
 ARG PROJECT_PATH=/opt/app/
 ARG YARN=false
 
@@ -29,8 +29,12 @@ RUN if [ ${YARN} = true ]; then \
     npm install -g yarn \
 ;fi
 
-COPY scripts/run-nodock.sh /usr/bin/run-nodock
-
-RUN chmod 700 /usr/bin/run-nodock
-
 WORKDIR /opt/app
+
+ADD ../../ /opt/app
+
+RUN yarn
+
+EXPOSE 7001
+
+CMD npm run docker
