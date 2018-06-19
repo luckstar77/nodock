@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+
+    node:
+        build:
+            args:
+                - NODE_VERSION=8.11.2
+                - YARN=true
+        ports:
+            - "7001:7001"
+        command: npm run test-local
+        # entrypoint: npm run docker
