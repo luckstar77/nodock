@@ -9,5 +9,5 @@ services:
                 - YARN=true
         ports:
             - "7001:7001"
-        command: npm run test-local
-        # entrypoint: npm run docker
+        # command: npm run test-local
+        entrypoint: npm run test-local
