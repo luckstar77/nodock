@@ -29,9 +29,9 @@ RUN if [ ${YARN} = true ]; then \
     npm install -g yarn \
 ;fi
 
-WORKDIR /opt/app
+WORKDIR ~/repo
 
-ADD ../../ /opt/app
+ADD ../../ ~/repo
 
 RUN yarn
 
