@@ -17,8 +17,8 @@ ENV NODE_ENV=$NODE_ENV
 # RUN groupadd -r www-app &&\
 #     useradd -r -g www-app www-app
 
-RUN mkdir -p ~/repo &&\
-    chmod 777 ~/repo -R
+RUN mkdir -p /opt/app/ &&\
+    chmod 777 /opt/app/ -R
 
 # Install the specified NODE_VERSION or grab latest
 RUN n "$NODE_VERSION"
@@ -29,9 +29,9 @@ RUN if [ ${YARN} = true ]; then \
     npm install -g yarn \
 ;fi
 
-WORKDIR ~/repo
+WORKDIR /opt/app/
 
-ADD ../../ ~/repo
+ADD ../../ /opt/app/
 
 RUN yarn
 
