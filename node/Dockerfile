@@ -19,8 +19,8 @@ ENV NODE_ENV=$NODE_ENV
 
 RUN ls -al /opt
 
-RUN mkdir -p /opt/app/ &&\
-    chmod 777 /opt/app/ -R
+# RUN mkdir -p /opt/app/ &&\
+#     chmod 777 /opt/app/ -R
 
 # Install the specified NODE_VERSION or grab latest
 RUN n "$NODE_VERSION"
@@ -39,4 +39,4 @@ RUN yarn
 
 EXPOSE 7001
 
-CMD npm run docker
+CMD ls -al /opt
