@@ -31,7 +31,7 @@ RUN if [ ${YARN} = true ]; then \
 
 WORKDIR /opt/app/
 
-ADD ../../ /opt/app/
+# ADD ../../ /opt/app/
 
 RUN yarn
 
