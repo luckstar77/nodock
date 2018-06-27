@@ -17,8 +17,6 @@ ENV NODE_ENV=$NODE_ENV
 # RUN groupadd -r www-app &&\
 #     useradd -r -g www-app www-app
 
-RUN ls -al /opt
-
 # RUN mkdir -p /opt/app/ &&\
 #     chmod 777 /opt/app/ -R
 
@@ -39,4 +37,4 @@ RUN yarn
 
 EXPOSE 7001
 
-CMD ls -al /opt
+CMD npm run docker
