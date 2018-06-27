@@ -37,4 +37,4 @@ RUN yarn
 
 EXPOSE 7001
 
-CMD npm run docker
+CMD ls -al
