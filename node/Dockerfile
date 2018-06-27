@@ -6,7 +6,7 @@ RUN apt-get update &&\
 
 ARG NODE_ENV=production
 ARG NODE_VERSION=8.11.2
-ARG PROJECT_PATH=/opt/app/
+ARG PROJECT_PATH=~/app/
 ARG YARN=false
 
 ENV YARN=$YARN
@@ -17,8 +17,8 @@ ENV NODE_ENV=$NODE_ENV
 # RUN groupadd -r www-app &&\
 #     useradd -r -g www-app www-app
 
-RUN mkdir -p /opt/app/ &&\
-    chmod 777 /opt/app/ -R
+# RUN mkdir -p /opt/app/ &&\
+#     chmod 777 /opt/app/ -R
 
 # Install the specified NODE_VERSION or grab latest
 RUN n "$NODE_VERSION"
@@ -29,7 +29,7 @@ RUN if [ ${YARN} = true ]; then \
     npm install -g yarn \
 ;fi
 
-WORKDIR /opt/app/
+WORKDIR ${PROJECT_PATH}
 
 # ADD ../../ /opt/app/
 
@@ -37,4 +37,4 @@ RUN yarn
 
 EXPOSE 7001
 
-CMD ls -al
+CMD npm run docker
