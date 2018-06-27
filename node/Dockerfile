@@ -17,8 +17,8 @@ ENV NODE_ENV=$NODE_ENV
 # RUN groupadd -r www-app &&\
 #     useradd -r -g www-app www-app
 
-# RUN mkdir -p /opt/app/ &&\
-#     chmod 777 /opt/app/ -R
+RUN mkdir -p /opt/app/ &&\
+    chmod 777 /opt/app/ -R
 
 # Install the specified NODE_VERSION or grab latest
 RUN n "$NODE_VERSION"
